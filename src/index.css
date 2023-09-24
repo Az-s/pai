@@ -7,8 +7,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: #FFFFFF;
+  color: #20201F;
   background-color: #F3F3F3;
 
   font-synthesis: none;
@@ -18,10 +17,3 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}

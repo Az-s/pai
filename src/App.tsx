@@ -4,7 +4,6 @@ import Account from './pages/Account';
 import Order from './pages/Order';
 import Otps from './pages/Otps';
 import Restaurant from './pages/Restaurant';
-import './App.css'
 
 function App() {
 

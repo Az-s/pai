@@ -1,8 +1,13 @@
-import React from 'react';
+import Navbar from "../components/Navbar";
+import PhoneNumberInput from "../components/PhoneNumberInput";
 
 const Otps = () => {
+
   return (
-    <div>Otps</div>
+    <>
+      <Navbar />
+      <PhoneNumberInput />
+    </>
   )
 }
 
