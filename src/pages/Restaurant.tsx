@@ -1,8 +1,12 @@
-import React from 'react';
+import Navbar from "../components/Navbar";
+import PrevOrders from "../components/PrevOrders";
 
 const Restaurant = () => {
   return (
-    <div>Restaurant</div>
+    <div>
+      <Navbar />
+      <PrevOrders />
+    </div>
   )
 }
 

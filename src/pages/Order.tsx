@@ -1,8 +1,14 @@
-import React from 'react';
+import Navbar from "../components/Navbar";
+import ORderDetails from "../components/ORderDetails";
+import Payment from "../components/Payment";
 
 const Order = () => {
   return (
-    <div>Order</div>
+    <div>
+      <Navbar />
+      <ORderDetails />
+      <Payment />
+    </div>
   )
 }
 
