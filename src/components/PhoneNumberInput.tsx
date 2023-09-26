@@ -25,20 +25,20 @@ const PhoneNumberInput = () => {
   };
 
   return (
-    <div className="bg-[#FFFFFF] px-[16px] w-full h-[270px] flex justify-center flex-col items-center">
+    <div className="bg-[#FFFFFF] px-[16px] w-full h-[270px] flex justify-center flex-col items-center rounded-2xl mt-10">
       {!isCodeInputVisible ? (
         <>
-          <h1>Введите номер телефона</h1>
+          <h2 className="font-bold text-[24px]">Введите номер телефона</h2>
           <input
             type="text"
             value={phoneNumber}
             onChange={handleChange}
-            className="rounded-bg-lg p-[10px]"
+            className="rounded-xl w-full bg-gray-light py-[10px] font-bold text-[20px] px-3 my-5"
           />
           {phoneNumber.length === 14 ? (
-            <button onClick={handleClick} className="bg-purple">Получить СМС код</button>
+            <button onClick={handleClick} className="bg-purple rounded-xl w-full py-[10px] font-[600] text-[16px] px-3 text-white">Получить СМС код</button>
           ) : (
-            <button className="bg-gray-dark">Получить СМС код</button>
+            <button className="bg-gray-dark rounded-xl w-full py-[10px] font-[600] text-[16px] px-3">Получить СМС код</button>
           )}
           {isNumberNotFound && <Modal message="Номер не найден" />}
         </>

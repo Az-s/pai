@@ -1,6 +1,10 @@
-const Modal = ({ message }) => {
+interface props {
+  message: string
+}
+
+const Modal = ({ message }: props) => {
   return (
-    <div>
+    <div className="">
       <p>{message}</p>
     </div>
   );

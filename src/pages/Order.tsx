@@ -1,12 +1,12 @@
 import Navbar from "../components/Navbar";
-import ORderDetails from "../components/ORderDetails";
+import OrderDetails from "../components/OrderDetails";
 import Payment from "../components/Payment";
 
 const Order = () => {
   return (
     <div>
       <Navbar />
-      <ORderDetails />
+      <OrderDetails />
       <Payment />
     </div>
   )
