@@ -2,7 +2,7 @@ import { RxExit } from "react-icons/rx";
 
 const Profile = () => {
   return (
-    <div className="bg-[#fff] w-full flex flex-col items-center rounded-2xl mt-10 p-5">
+    <div className="bg-[#fff] w-full flex flex-col items-center rounded-2xl mt-10 p-5 max-w-4xl mx-auto">
       <div className="flex flex-row items-center justify-between w-full">
         <h1 className="font-bold text-[24px]">Профиль</h1>
         <RxExit className="w-[24px] h-[24px]"/>

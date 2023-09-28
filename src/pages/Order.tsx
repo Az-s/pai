@@ -4,12 +4,14 @@ import Payment from "../components/Payment";
 
 const Order = () => {
   return (
-    <div>
+    <>
       <Navbar />
-      <OrderDetails />
-      <Payment />
-    </div>
-  )
-}
+      <div className="max-w-4xl mx-auto mt-10">
+        <OrderDetails />
+        <Payment />
+      </div>
+    </>
+  );
+};
 
 export default Order;

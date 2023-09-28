@@ -11,7 +11,7 @@ const PrevOrders = () => {
         </div>
         <img src="#" alt="Logo" className="w-[64px] h-[64px]" />
       </div>
-      <section className="bg-[#fff] w-full flex flex-col items-center rounded-2xl mt-10 p-5">
+      <section className="bg-[#fff] w-full flex flex-col items-center rounded-2xl mt-1 p-5">
         <p className="font-[700] text-[24px]">Заказы</p>
         <Link
           to="/orders"

@@ -25,7 +25,7 @@ const PhoneNumberInput = () => {
   };
 
   return (
-    <div className="bg-[#FFFFFF] px-[16px] w-full h-[270px] flex justify-center flex-col items-center rounded-2xl mt-10">
+    <div className="bg-[#FFFFFF] px-[16px] w-full h-[270px] flex justify-center flex-col items-center rounded-2xl max-w-4xl mx-auto">
       {!isCodeInputVisible ? (
         <>
           <h2 className="font-bold text-[24px]">Введите номер телефона</h2>

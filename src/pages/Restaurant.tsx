@@ -3,11 +3,13 @@ import PrevOrders from "../components/PrevOrders";
 
 const Restaurant = () => {
   return (
-    <div>
+    <>
       <Navbar />
-      <PrevOrders />
-    </div>
-  )
-}
+      <div className="max-w-4xl mx-auto mt-10">
+        <PrevOrders />
+      </div>
+    </>
+  );
+};
 
 export default Restaurant;
