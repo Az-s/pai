@@ -24,16 +24,23 @@ const PhoneNumberInput = () => {
     }
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    if (!/[0-9]/.test(event.key)) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <div className="bg-[#FFFFFF] px-[16px] w-full h-[270px] flex justify-center flex-col items-center rounded-2xl max-w-4xl mx-auto">
       {!isCodeInputVisible ? (
         <>
-          <h2 className="font-bold text-[24px]">Введите номер телефона</h2>
+          <h2 className="font-bold text-[24px] self-start">Введите номер телефона</h2>
           <input
             type="text"
             value={phoneNumber}
             onChange={handleChange}
-            className="rounded-xl w-full bg-gray-light py-[10px] font-bold text-[20px] px-3 my-5"
+            onKeyPress={handleKeyPress}
+            className="rounded-xl w-full bg-gray-light p-[10px] font-bold text-[20px] px-3 mt-[24px] mb-[40px]"
           />
           {phoneNumber.length === 14 ? (
             <button onClick={handleClick} className="bg-purple rounded-xl w-full py-[10px] font-[600] text-[16px] px-3 text-white">Получить СМС код</button>

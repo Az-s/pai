@@ -1,14 +1,25 @@
 import { FaReceipt } from "react-icons/fa";
+import FlaskLogo from '../assets/flaskCoffee.jpg';
+import Receipt from '../assets/Receipt.svg';
 
 const OrderDetails = () => {
   return (
     <>
-      <div className="bg-[#fff] w-full flex flex-row justify-between items-center rounded-2xl my-1 p-4">
+      <div className="bg-[#fff] w-full flex flex-row justify-between items-center rounded-b-2xl p-4">
+        <div className="">
+          <h2 className="font-[700] text-[28px]">Flask Coffee</h2>
+          <p className="font-[400] text-[14px] text-[#8A898E]">
+            ул. Исанова 37/1
+          </p>
+        </div>
+        <img src={FlaskLogo} alt="Logo" className="w-[64px] h-[64px] rounded-full border border-[#8A898E]" />
+      </div>
+      <div className="bg-[#fff] w-full flex flex-row justify-between items-center rounded-2xl my-[8px] p-4">
         <span className="font-[600] text-[16px]">Сумма к оплате</span>
         <span className="font-[700] text-[24px]">735 сом</span>
       </div>
       <div className="bg-[#fff] w-full flex flex-col justify-between items-center rounded-2xl my-1 p-4">
-        <h2 className="font-[700] text-[24px]">Детали заказа</h2>
+        <h2 className="font-[700] text-[24px] self-start">Детали заказа</h2>
         <div className="w-full p-3">
           <div className="flex items-center justify-between">
             <span className="font-[600] text-[16px]">Американо</span>
@@ -20,12 +31,12 @@ const OrderDetails = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#fff] w-full flex flex-row justify-between items-center rounded-2xl my-1 p-4">
+      <div className="bg-[#fff] w-full flex flex-row justify-between items-center rounded-2xl my-[8px] p-4">
         <div className="flex flex-row items-center">
-          <FaReceipt className="w-[32px] h-[32px]" />
+          <img src={Receipt} alt="receipt" className="w-[36px] h-[36px] pr-[8px]"/>
           <div>
             <span className="font-[600] text-[16px]">Заказ №2531</span>
-            <p className="font-[400] text-[14px]">5 сентября - 12:32</p>
+            <p className="font-[400] text-[14px] text-[#8A898E]">5 сентября - 12:32</p>
           </div>
         </div>
         <span className="font-[600] text-[16px] text-orange">Открыт</span>
