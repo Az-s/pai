@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Account from "./pages/Account";
 import Order from "./pages/Order";
@@ -13,8 +12,8 @@ function App() {
         <Route path="/" element={<Otps />} />
         <Route path="/restaurants" element={<Restaurant />} />
         <Route path="/orders" element={<Order />} />
-        <Route path="/account" element={<Account />} />
         <Route path="/add-bank-card" element={<AddCard />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
     </BrowserRouter>
   );

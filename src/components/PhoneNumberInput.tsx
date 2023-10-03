@@ -41,6 +41,7 @@ const PhoneNumberInput = () => {
             onChange={handleChange}
             onKeyPress={handleKeyPress}
             className="rounded-xl w-full bg-gray-light p-[10px] font-bold text-[20px] px-3 mt-[24px] mb-[40px]"
+            inputMode="numeric"
           />
           {phoneNumber.length === 14 ? (
             <button onClick={handleClick} className="bg-purple rounded-xl w-full py-[10px] font-[600] text-[16px] px-3 text-white">Получить СМС код</button>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { RxExit } from "react-icons/rx";
 import Modal from './Modal';
+import Vector from "../assets/Vector.svg";
 
 const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,7 +27,7 @@ const Profile = () => {
         <p className="font-[400] text-[14px] text-purple">Пользовательское соглашение</p>
         <p className="font-[400] text-[14px] text-purple py-[24px]">Политика конфиденциальности</p>
       </div>
-      {isModalOpen && <Modal title="Выход из аккаунта" content='При выходе вам потребуется заново вводить номер телефона и получить СМС' onClose={handleCloseModal} />}
+      {isModalOpen && <Modal img={Vector} title="Выход из аккаунта" content='При выходе вам потребуется заново вводить номер телефона и получить СМС' onClose={handleCloseModal} />}
     </div>
   );
 };
