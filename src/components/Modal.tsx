@@ -7,7 +7,6 @@ interface props {
   img?: string;
   buttonText: string;
   loader?: boolean;
-  message: string;
 }
 
 const Modal = ({ title, content, onClose, img, loader, buttonText }: props) => {

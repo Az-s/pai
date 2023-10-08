@@ -31,8 +31,8 @@ const CodeInput: React.FC = () => {
     setCode(newCode);
 
     if (event.target.value !== '') {
-      if (index < code.length - 1 && inputsRef.current[index + 1]) {
-        inputsRef.current[index + 1].focus();
+      if (index < code.length - 1 && inputsRef.current[index + 1] != null) {
+        inputsRef.current[index + 1]?.focus();
       }
     }
   };
