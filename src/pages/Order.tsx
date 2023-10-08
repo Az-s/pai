@@ -10,8 +10,8 @@ const Order: React.FC = () => {
       <Navbar />
       <div className="max-w-4xl mx-auto">
         <OrderDetails />
-        <AddCardButton />
         <Payment />
+        <AddCardButton />
       </div>
     </>
   );
