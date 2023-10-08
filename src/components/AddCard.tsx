@@ -48,6 +48,7 @@ const AddCard: React.FC = () => {
               onChange={(e) => setCardNumber(e.target.value)}
               id="cardInput"
               placeholder="Номер карты"
+              minLength={16}
               maxLength={16}
             />
           </div>
