@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Modal from "./Modal";
+// import Modal from "./Modal";
 import CodeInput from "./CodeInput";
 
 const PhoneNumberInput = () => {
   const [phoneNumber, setPhoneNumber] = useState("+996 ");
-  const [isNumberNotFound, setIsNumberNotFound] = useState(false);
+  // const [isNumberNotFound, setIsNumberNotFound] = useState(false);
   const [isCodeInputVisible, setIsCodeInputVisible] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +48,7 @@ const PhoneNumberInput = () => {
           ) : (
             <button className="bg-gray-dark rounded-xl w-full py-[10px] font-[600] text-[16px] px-3">Получить СМС код</button>
           )}
-          {isNumberNotFound && <Modal message="Номер не найден" />}
+          {/* {isNumberNotFound && <Modal />} */}
         </>
       ) : (
         <CodeInput />

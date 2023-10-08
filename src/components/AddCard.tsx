@@ -48,6 +48,7 @@ const AddCard: React.FC = () => {
               onChange={(e) => setCardNumber(e.target.value)}
               id="cardInput"
               placeholder="Номер карты"
+              inputMode="numeric"
               minLength={16}
               maxLength={16}
             />
@@ -59,6 +60,7 @@ const AddCard: React.FC = () => {
                 type="text"
                 placeholder="MM / YY"
                 maxLength={4}
+                inputMode="numeric"
               />
             </div>
             <div className="w-[40%]">
@@ -86,6 +88,7 @@ const AddCard: React.FC = () => {
               type="text"
               placeholder="Номер телефона"
               className="w-full bg-[#dfdfdf]  mt-1 p-2 border-b border-t-0 border-r-0 border-l-0 rounded-none focus:outline-none"
+              inputMode="numeric"
               maxLength={14}
             />
           </div>
