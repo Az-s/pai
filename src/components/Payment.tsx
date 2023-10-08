@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Addbutton from "../assets/plus-3 1.svg";
 import { useCardStore } from "../store/CardStore";
 import Card from "../assets/DIU_PKA0403 2.svg";
-import Checked from '../assets/cheked.png'
+import Checked from '../assets/check-4 1.svg'
 
 const Payment: React.FC = () => {
   const { selectedCards } = useCardStore();
@@ -28,12 +28,12 @@ const Payment: React.FC = () => {
             </ul>
           </div>
           <div
-            className={`w-8 h-8 flex justify-center items-center rounded-full border-2 ${
-              selected ? "border-[#ffff00] bg-[#ffff00]" : "border-gray-dark"
+            className={`w-8 h-8 flex justify-center items-center rounded-full border-2 focus:outline-none active::outline-none   ${
+              selected ? "border-none bg-purple" : "border-gray-dark"
             }`}
             onClick={() => setSelected(!selected)}
           >
-            {selected && <div className="w-8 h-8 rounded-full bg-white"><img src={Checked} alt="" /></div>}
+            {selected && <div className="rounded-full bg-purple flex items-center justify-center"><img src={Checked} alt="" /></div>}
           </div>
         </div>
       )}
@@ -42,7 +42,7 @@ const Payment: React.FC = () => {
           type="button"
           className="rounded-xl w-full bg-gray-dark py-[10px] px-3 my-5 font-[400] text-[14px] text-[#8A898E] text-center flex justify-center items-center"
         >
-          <img src={Addbutton} alt="plus" /> Добавить карту
+          <img src={Addbutton} alt="plus" className="pr-[8px]"/> Добавить карту
         </button>
       </Link>
     </div>

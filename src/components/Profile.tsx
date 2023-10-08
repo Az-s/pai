@@ -27,7 +27,7 @@ const Profile = () => {
         <p className="font-[400] text-[14px] text-purple">Пользовательское соглашение</p>
         <p className="font-[400] text-[14px] text-purple py-[24px]">Политика конфиденциальности</p>
       </div>
-      {isModalOpen && <Modal img={Vector} title="Выход из аккаунта" content='При выходе вам потребуется заново вводить номер телефона и получить СМС' onClose={handleCloseModal} />}
+      {isModalOpen && <Modal img={Vector} title="Выход из аккаунта" content='При выходе вам потребуется заново вводить номер телефона и получить СМС' onClose={handleCloseModal} buttonText='Подтвердить выход'/>}
     </div>
   );
 };

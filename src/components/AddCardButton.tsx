@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import Modal from './Modal';
-import Check from '../assets/cheked.png'
+// import Modal from './Modal';
+// import Check from '../assets/cheked.png'
+import ShowCaseModal from './ShowCaseModal';
 
 const AddCardButton = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,6 +14,13 @@ const AddCardButton = () => {
     setIsModalOpen(false);
   };
 
+  const [stage, setStage] = useState(0);
+
+  const nextStage = () => {
+    setStage(prevStage => prevStage + 1);
+  };
+
+
   return (
     <div className="rounded-t-2xl bg-[#fff] pt-[16px] pb-[32px] px-[16px] fixed bottom-0 w-full">
       <button
@@ -20,9 +28,10 @@ const AddCardButton = () => {
         type="button"
         onClick={handleOpenModal}
       >
-        Прикрепить банковскую карту
+      Прикрепить банковскую карту
       </button>
-      {isModalOpen && <Modal img={Check} title="Оплачено" content='При выходе вам потребуется заново вводить номер телефона и получить СМС' onClose={handleCloseModal} />}
+      {/* {isModalOpen && <Modal img={Check} title="Оплачено" content='При выходе вам потребуется заново вводить номер телефона и получить СМС' onClose={handleCloseModal} />} */}
+      {isModalOpen && <ShowCaseModal stage={stage} nextStage={nextStage} />}
     </div>
   );
 };

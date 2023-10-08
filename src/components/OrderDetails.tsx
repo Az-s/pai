@@ -1,4 +1,3 @@
-import { FaReceipt } from "react-icons/fa";
 import FlaskLogo from '../assets/flaskCoffee.jpg';
 import Receipt from '../assets/Receipt.svg';
 
@@ -20,7 +19,7 @@ const OrderDetails = () => {
       </div>
       <div className="bg-[#fff] w-full flex flex-col justify-between items-center rounded-2xl my-1 p-4">
         <h2 className="font-[700] text-[24px] self-start">Детали заказа</h2>
-        <div className="w-full p-3">
+        <div className="w-full pt-3">
           <div className="flex items-center justify-between">
             <span className="font-[600] text-[16px]">Американо</span>
             <span className="font-[600] text-[16px]">340 сом</span>
