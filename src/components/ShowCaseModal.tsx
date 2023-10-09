@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useLottie } from "lottie-react";
 import CheckMark from "../assets/DIU_PKA0369 1.svg";
 import Attention from "../assets/Vector.svg";
-import animation from "../assets/animation_lnhuat53.json";
+import animation from "../assets/Animation - 1696874997912.json";
+// import confetti from '../assets/animation_lnj7m8lv.json'
 // import check from '../assets/animation_lnhx3mga.json';
 
 interface ModalProps {
@@ -46,21 +47,23 @@ const ShowCaseModal: React.FC<ModalProps> = ({ stage, nextStage }) => {
   };
   const { View: LottieAnimation } = useLottie(defaultOptions);
 
-//   const defaultOptionsTwo = {
-//     loop: true,
-//     autoplay: true,
-//     animationData: check,
-//     rendererSettings: {
-//       preserveAspectRatio: "xMidYMid slice",
-//     },
-//   };
-//   const { View: LottieAnimationTwo } = useLottie(defaultOptionsTwo);
+  // const defaultOptionsTwo = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData: confetti,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
+
+  // const { View: LottieAnimationTwo } = useLottie(defaultOptionsTwo);
+  
 
   useEffect(() => {
     if (loader) {
       const timer = setTimeout(() => {
         nextStage();
-      }, 3000); // Загрузка будет длиться 2 секунды
+      }, 2000); // Загрузка будет длиться 2 секунды
 
       return () => clearTimeout(timer); // Очистка таймера при размонтировании компонента
     }
@@ -68,12 +71,12 @@ const ShowCaseModal: React.FC<ModalProps> = ({ stage, nextStage }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-[#000] bg-opacity-50 py-[32px] px-[16px]">
-      <div className="bg-white p-4 rounded-2xl flex flex-col items-center justify-center w-full">
-        {loader && <div>{LottieAnimation}</div>}
-        {image && <img src={image} alt="" />}
-        <h2 className="font-bold text-[20px] text-center">{heading}</h2>
+      <div className="bg-white px-4 rounded-3xl flex flex-col items-center justify-center w-full">
+        {loader && <div className="m-0 p-0">{LottieAnimation}</div>}
+        {image && <img src={image} alt="" className="pt-8"/>}
+        <h2 className="font-bold text-[20px] text-center pt-[24px]">{heading}</h2>
         {paragraph && (
-          <p className="font-[400] text-[14px] text-center text-[#8A898E]">
+          <p className="font-[400] text-[14px] text-center text-[#8A898E] pt-[24px]">
             {paragraph}
           </p>
         )}

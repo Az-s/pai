@@ -4,7 +4,7 @@ import PhoneNumberInput from "../components/PhoneNumberInput";
 const Otps = () => {
   return (
     <>
-      <Navbar />
+      <Navbar rounded/>
       <div className="min-h-[80vh] flex items-center justify-center">
         <PhoneNumberInput />
       </div>

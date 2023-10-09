@@ -4,7 +4,7 @@ import Profile from "../components/Profile";
 const Account = () => {
   return (
     <>
-      <Navbar />
+      <Navbar rounded/>
       <Profile />
     </>
   );
