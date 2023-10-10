@@ -1,17 +1,23 @@
-import create from 'zustand';
-import { ReceiptData, fetchReceiptData } from './api/receiptApi';
+import {create} from 'zustand';
+import { fetchReceiptData, ReceiptData } from '../store/api/receiptApi';
 
-interface ReceiptStore {
-  receiptData: ReceiptData | null;
-  fetchReceiptData: (tabletId: string) => Promise<void>;
+interface State {
+  data: ReceiptData | null;
+  error: Error | null;
+  fetchReceipt: (tablet_id: string) => Promise<void>;
 }
-
-const useReceiptStore = create<ReceiptStore>((set) => ({
-  receiptData: null,
-  fetchReceiptData: async (tabletId) => {
-    const data = await fetchReceiptData(tabletId);
-    set({ receiptData: data });
+  
+export const useReceiptStore = create<State>((set) => ({
+  data: null,
+  error: null,
+  fetchReceipt: async (tablet_id) => {
+    try {
+      const data = await fetchReceiptData(tablet_id);
+      set({ data });
+    } catch (error) {
+      // set({ error });
+      console.error('Ошибка при запросе данных чека:', error);
+      throw error;
+    }
   },
 }));
-
-export default useReceiptStore;

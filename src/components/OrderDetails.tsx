@@ -1,7 +1,17 @@
+import {useEffect} from 'react';
 import FlaskLogo from '../assets/flaskCoffee.jpg';
 import Receipt from '../assets/Receipt.svg';
+import {useReceiptStore}  from '../store/receiptStore';
 
 const OrderDetails = () => {
+  const { data, fetchReceipt } = useReceiptStore();
+
+  useEffect(() => {
+    fetchReceipt('1');
+  }, [fetchReceipt]);
+
+  console.log(data)
+ 
   return (
     <>
       <div className="bg-[#fff] w-full flex flex-row justify-between items-center rounded-b-2xl p-4">
@@ -15,7 +25,7 @@ const OrderDetails = () => {
       </div>
       <div className="bg-[#fff] w-full flex flex-row justify-between items-center rounded-2xl my-[8px] p-4">
         <span className="font-[600] text-[16px]">Сумма к оплате</span>
-        <span className="font-[700] text-[24px]">735 сом</span>
+        <span className="font-[700] text-[24px]">{data.products.product_sum}</span>
       </div>
       <div className="bg-[#fff] w-full flex flex-col justify-between items-center rounded-2xl my-1 p-4">
         <h2 className="font-[700] text-[24px] self-start">Детали заказа</h2>

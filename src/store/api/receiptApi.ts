@@ -1,17 +1,30 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
-export async function fetchReceiptData(tabletId: string) {
+export interface Product {
+  product_name: string;
+  product_sum: string;
+  num: string;
+}
+
+export interface ReceiptData {
+  transaction_id: string;
+  products: Product[];
+}
+
+export async function fetchReceiptData(tabletId: string): Promise<ReceiptData> {
   try {
-    const response = await axios.get<ReceiptData>('http://127.0.0.1:8080/api/getReceipt', {
+    const response: AxiosResponse<ReceiptData> = await axios.get('https://pai.kg/api/getReceipt', {
       params: { tablet_id: tabletId },
     });
-    return response.data;
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Ошибка при запросе данных чека. Некорректный статус ответа:', response.status);
+      throw new Error('Ошибка при запросе данных чека');
+    }
   } catch (error) {
     console.error('Ошибка при запросе данных чека:', error);
     throw error;
   }
-}
-
-export interface ReceiptData {
-  // Другие поля
 }
