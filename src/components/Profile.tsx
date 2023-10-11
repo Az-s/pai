@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { RxExit } from "react-icons/rx";
+import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import Vector from "../assets/Vector.svg";
 
@@ -23,7 +24,9 @@ const Profile = () => {
       <div className="w-full">
         <h4 className="font-[600] text-[16px]">Номер телефона</h4>
         <p className="font-[400] text-[14px] pt-[12px]">+996 777 324234</p>
+        <Link to='https://api.whatsapp.com/send/?phone=%2B996505205058&text&type=phone_number&app_absent=0'>
         <button className="bg-purple rounded-xl w-full py-[10px] font-[600] text-[16px] px-[10px] text-white my-[24px]">Оставить отзыв</button>
+        </Link>
         <p className="font-[400] text-[14px] text-purple">Пользовательское соглашение</p>
         <p className="font-[400] text-[14px] text-purple py-[24px]">Политика конфиденциальности</p>
       </div>

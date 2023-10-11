@@ -89,11 +89,11 @@ const OrderDetails = () => {
                   {product.product_name}
                 </span>
                 <span className="font-[600] text-[16px]">
-                  {product.product_sum}
+                  {parseFloat(product.product_sum) / 100}
                 </span>
               </div>
               <div className="flex items-center justify-between w-full">
-                <p className="font-[400] text-[14px]">{product.product_sum}</p>
+                <p className="font-[400] text-[14px]">{parseFloat(product.product_sum) / parseInt(product.num)}</p>
                 <p className="font-[400] text-[14px]">х{product.num}</p>
               </div>
             </div>
