@@ -114,7 +114,7 @@ const OrderDetails = () => {
                 </p>
               </div>
             </div>
-            <span className="font-[600] text-[16px] text-orange">Открыт</span>
+            <span className={`font-[600] text-[16px] ${data.status === "1" ? `text-orange` : 'text-[#6DC339]'}`}>{data.status === "1" ? 'Открыт' : 'Оплачен'}</span>
           </div>
         </div>
       ))}

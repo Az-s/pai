@@ -28,7 +28,7 @@ const Payment: React.FC = () => {
             </ul>
           </div>
           <div
-            className={`w-8 h-8 flex justify-center items-center rounded-full border-2 focus:outline-none active::outline-none   ${
+            className={`w-6 h-6 flex justify-center items-center rounded-full border-2 focus:outline-none active::outline-none   ${
               selected ? "border-none bg-purple" : "border-gray-dark"
             }`}
             onClick={() => setSelected(!selected)}
