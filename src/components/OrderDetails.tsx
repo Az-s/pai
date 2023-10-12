@@ -2,9 +2,12 @@ import { useEffect } from "react";
 import FlaskLogo from "../assets/flaskCoffee.jpg";
 import Receipt from "../assets/Receipt.svg";
 import { useReceiptStore } from "../store/receiptStore";
+// import { useReceiptStore } from "../store/receiptStoreWs";
 
 const OrderDetails = () => {
   const { data, fetchReceipt } = useReceiptStore();
+  //раскомментировать при использовании ws а другие наоборот
+  // const { data } = useReceiptStore();
 
   useEffect(() => {
     fetchReceipt("1");
@@ -60,7 +63,7 @@ const OrderDetails = () => {
         </div>
         <span className="font-[600] text-[16px] text-orange">Открыт</span>
       </div> */}
-      {data?.products.map((product, index) => (
+      {data?.products && data.products.map((product, index) => (
         <div key={index}>
           <div className="bg-[#fff] w-full flex flex-row justify-between items-center rounded-b-2xl p-4">
             <div className="">
