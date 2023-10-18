@@ -21,6 +21,7 @@ export async function fetchReceiptData(tabletId: string): Promise<ReceiptData> {
 
     if (response.status === 200) {
       return response.data;
+      // return response.data.data;
     } else {
       console.error('Ошибка при запросе данных чека. Некорректный статус ответа:', response.status);
       throw new Error('Ошибка при запросе данных чека');
