@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import FlaskLogo from "../assets/flaskCoffee.jpg";
 import Receipt from "../assets/Receipt.svg";
 import { useReceiptStore } from "../store/receiptStore";
+import { useLottie } from "lottie-react";
+import animation from '../assets/Animation - 1696874997912.json';
 
 const OrderDetails = () => {
   const { data, fetchReceipt } = useReceiptStore();
@@ -10,7 +12,15 @@ const OrderDetails = () => {
     fetchReceipt("1");
   }, [fetchReceipt]);
 
-  console.log(data);
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const { View: LottieAnimation } = useLottie(defaultOptions);
 
   return (
     <>
@@ -32,7 +42,7 @@ const OrderDetails = () => {
           <div className="bg-[#fff] w-full flex flex-row justify-between items-center rounded-2xl my-[8px] p-4">
             <span className="font-[600] text-[16px]">Сумма к оплате</span>
             <span className="font-[700] text-[24px]">
-              {parseFloat(data.product_sum) / 100}
+              {parseFloat(data.sum) / 100} сом
             </span>
           </div>
           <div className="bg-[#fff] w-full flex flex-col justify-between items-center rounded-2xl my-1 p-4">
@@ -44,7 +54,7 @@ const OrderDetails = () => {
                     {p.product_name}
                   </span>
                   <span className="font-[600] text-[16px]">
-                    {parseFloat(p.product_sum) / 100}
+                    {parseFloat(p.product_sum) / 100} сом
                   </span>
                 </div>
                 <div className="flex items-center justify-between w-full">
@@ -82,8 +92,8 @@ const OrderDetails = () => {
           </div>
         </div>
       ) : (
-        <p className="font-[400] text-[14px] text-[#8A898E] p-5">
-          Загрузка данных...
+        <p className="my-[8px] rounded-2xl">
+          {LottieAnimation}
         </p>
       )}
     </>

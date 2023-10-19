@@ -41,7 +41,7 @@ const PrevOrders = () => {
               to="/orders"
               className="flex flex-col items-center justify-between w-full"
             >
-              {orderData.products.map((product, productIndex) => (
+              {/* {orderData.products.map((product, productIndex) => (
                 <div
                   className="flex justify-between items-center w-full"
                   key={productIndex}
@@ -57,25 +57,50 @@ const PrevOrders = () => {
                     </span>
                   </div>
                   <p className="font-[600] text-[16px]">
-                    {parseInt(product.product_sum) / 100} сом
+                    {parseInt(orderData.sum) / 100} сом
                   </p>
                 </div>
-              ))}
+              ))} */}
+                <div
+                  className="flex justify-between items-center w-full"
+                >
+                  <div className="flex flex-row items-center">
+                    <img
+                      src={Receipt}
+                      alt="Receipt"
+                      className="w-[24px] h-[24px]"
+                    />
+                    <span className="font-[600] text-[16px] pl-1 overflow-hidden whitespace-nowrap overflow-ellipsis w-[220px]">
+                    {orderData.products.map(product => product.product_name).join(', ')}
+                    </span>
+                  </div>
+                  <p className="font-[600] text-[16px]">
+                    {parseInt(orderData.sum) / 100} сом
+                  </p>
+                </div>
               <div className="flex justify-between items-center w-full pt-[12px] pb-[20px]">
                 <p className="font-[400] text-[14px] text-[#8A898E]">
                   {orderData.date_close_date}
                 </p>
-                <p className="font-[400] text-[14px] text-orange">Открыт</p>
+                <p
+                  className={`font-[600] text-[16px] ${
+                    orderData.status === "1" ? `text-orange` : "text-[#6DC339]"
+                  }`}
+                >
+                  {orderData.status === "1" ? "Открыт" : "Оплачен"}
+                </p>
               </div>
             </Link>
           </section>
         ))
       ) : (
-        <img
-          src={Receipt}
-          alt="Receipt"
-          className="w-[64px] h-[64px] flex justify-center items-center"
-        />
+        <div className="flex justify-center items-center pt-10">
+          <img
+            src={Receipt}
+            alt="Receipt"
+            className="w-[64px] h-[64px]"
+          />
+        </div>
       )}
     </>
   );

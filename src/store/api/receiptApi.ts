@@ -10,6 +10,7 @@ export interface ReceiptData {
   transaction_id: string;
   date_close_date: string;
   status: string;
+  sum: string;
   products: Product[];
 }
 

@@ -21,6 +21,7 @@ export interface OrderData {
   table_id: string;
   status: string;
   date_close_date: string;
+  sum: string;
   products: Product[];
 }
 
