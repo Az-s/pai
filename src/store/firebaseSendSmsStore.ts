@@ -1,4 +1,4 @@
-import create from 'zustand';
+import {create} from 'zustand';
 import { VerificationResponse, sendVerificationCode } from './api/firebaseSendSmsApi';
 
 interface VerificationStore {

@@ -1,9 +1,7 @@
-import create from "zustand";
+import {create} from "zustand";
 import {
   fetchOrders,
-  // OrderResponse,
   OrderData,
-  // Product,
 } from "../store/api/ordersApi";
 
 interface OrderStore {

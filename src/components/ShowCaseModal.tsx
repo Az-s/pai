@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLottie } from "lottie-react";
 import CheckMark from "../assets/DIU_PKA0369 1.svg";
-import Attention from "../assets/Vector.svg";
 import animation from "../assets/Animation - 1696874997912.json";
-// import confetti from '../assets/animation_lnj7m8lv.json'
-// import check from '../assets/animation_lnhx3mga.json';
+import  useCloseOrderStore  from "../store/completeOrderStore";
+import { useReceiptStore } from "../store/receiptStore";
 
 interface ModalProps {
   stage: number;
@@ -19,24 +18,12 @@ const stages = [
     buttonText: "Подождите чуть-чуть",
   },
   { image: CheckMark, heading: "Оплачено", buttonText: "Закрыть" },
-  {
-    image: Attention,
-    heading: "Недостаточно средств",
-    paragraph: "Проверьте свой баланс или попробуйте прикрепить другую карту",
-    buttonText: "Попробовать снова",
-  },
-  {
-    image: Attention,
-    heading: "Ошибка перевода",
-    paragraph:
-      "Возможно ваш банк испытывает проблемы. Попробуйте еще раз оплатить или прикрепить другую карту",
-    buttonText: "Попробовать снова",
-  },
 ];
 
 const ShowCaseModal: React.FC<ModalProps> = ({ stage, nextStage }) => {
   const navigate = useNavigate();
   const { loader, image, heading, paragraph, buttonText } = stages[stage];
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -47,25 +34,32 @@ const ShowCaseModal: React.FC<ModalProps> = ({ stage, nextStage }) => {
   };
   const { View: LottieAnimation } = useLottie(defaultOptions);
 
-  // const defaultOptionsTwo = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData: confetti,
-  //   rendererSettings: {
-  //     preserveAspectRatio: "xMidYMid slice",
-  //   },
-  // };
+  const receiptStore = useReceiptStore();
+  const closeOrderStore = useCloseOrderStore();
 
-  // const { View: LottieAnimationTwo } = useLottie(defaultOptionsTwo);
-  
+  const handlePostRequest = async () => {
+    try {
+      if (receiptStore.isLoading) {
+        // Показать индикатор загрузки или что-то в этом роде
+      } else {
+        const receiptData = receiptStore.data;
+        console.log(receiptData);
+        const { spot_id, transaction_id, payed_card, payment_method_id } = receiptData; // Важно использовать нижний регистр
+        await closeOrderStore.closeOrder(spot_id, transaction_id, payed_card, payment_method_id);
+        navigate("/restaurants");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     if (loader) {
       const timer = setTimeout(() => {
         nextStage();
-      }, 2000); // Загрузка будет длиться 2 секунды
+      }, 2000);
 
-      return () => clearTimeout(timer); // Очистка таймера при размонтировании компонента
+      return () => clearTimeout(timer);
     }
   }, [loader, nextStage]);
 
@@ -73,17 +67,17 @@ const ShowCaseModal: React.FC<ModalProps> = ({ stage, nextStage }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-[#000] bg-opacity-50 py-[32px] px-[16px]">
       <div className="bg-white px-4 rounded-3xl flex flex-col items-center justify-center w-full">
         {loader && <div className="m-0 p-0">{LottieAnimation}</div>}
-        {image && <img src={image} alt="" className="pt-8"/>}
-        <h2 className="font-bold text-[20px] text-center pt-[24px]">{heading}</h2>
+        {image && <img src={image} alt="" className="pt-8" />}
+        <h2 className="font-bold text-[20px] text-center pt-[24px]">
+          {heading}
+        </h2>
         {paragraph && (
           <p className="font-[400] text-[14px] text-center text-[#8A898E] pt-[24px]">
             {paragraph}
           </p>
         )}
         <button
-          onClick={
-            stage === stages.length - 1 ? () => navigate("/") : nextStage
-          }
+          onClick={handlePostRequest}
           disabled={loader}
           className="bg-purple rounded-xl w-full py-[10px] font-[600] text-[16px] px-[10px] text-white my-[24px]"
         >

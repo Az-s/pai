@@ -7,7 +7,7 @@ import Checked from '../assets/check-4 1.svg'
 
 const Payment: React.FC = () => {
   const { selectedCards } = useCardStore();
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(true);
 
   return (
     <div className="bg-[#fff] w-full flex flex-col justify-between items-center rounded-2xl my-1 p-4">

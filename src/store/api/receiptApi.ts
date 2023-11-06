@@ -12,6 +12,9 @@ export interface ReceiptData {
   status: string;
   sum: string;
   products: Product[];
+  spotId: string;
+  payedCard: string;
+  paymentMethodId: string;
 }
 
 export async function fetchReceiptData(tabletId: string): Promise<ReceiptData> {

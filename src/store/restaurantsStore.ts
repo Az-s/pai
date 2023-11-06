@@ -1,4 +1,4 @@
-import create from 'zustand';
+import {create} from 'zustand';
 import { fetchOrganizationData } from './api/restaurantsApi';
 
 export interface Organization {

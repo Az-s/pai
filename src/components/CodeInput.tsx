@@ -21,7 +21,7 @@ const CodeInput: React.FC = () => {
 
   useEffect(() => {
     if (code.join('').length === 4) {
-      navigate("/restaurants");
+      navigate("/orders");
     }
   }, [code, navigate]);
 

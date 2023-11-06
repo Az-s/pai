@@ -3,7 +3,7 @@ import FlaskLogo from "../assets/flaskCoffee.jpg";
 import Receipt from "../assets/Receipt.svg";
 import { useReceiptStore } from "../store/receiptStore";
 import { useLottie } from "lottie-react";
-import animation from '../assets/Animation - 1696874997912.json';
+import animation from "../assets/Animation - 1696874997912.json";
 
 const OrderDetails = () => {
   const { data, fetchReceipt } = useReceiptStore();
@@ -59,7 +59,7 @@ const OrderDetails = () => {
                 </div>
                 <div className="flex items-center justify-between w-full">
                   <p className="font-[400] text-[14px]">
-                    {parseFloat(p.product_sum) / parseInt(p.num)}
+                    {parseFloat(p.product_sum) / parseInt(p.num) / 100} сом
                   </p>
                   <p className="font-[400] text-[14px]">х{Math.floor(p.num)}</p>
                 </div>
@@ -92,9 +92,7 @@ const OrderDetails = () => {
           </div>
         </div>
       ) : (
-        <p className="my-[8px] rounded-2xl">
-          {LottieAnimation}
-        </p>
+        <p className="my-[8px] rounded-2xl">{LottieAnimation}</p>
       )}
     </>
   );

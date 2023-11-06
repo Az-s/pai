@@ -1,6 +1,4 @@
 import { useState } from "react";
-// import Modal from './Modal';
-// import Check from '../assets/cheked.png'
 import ShowCaseModal from "./ShowCaseModal";
 import { useCardStore } from "../store/CardStore";
 
@@ -11,10 +9,6 @@ const AddCardButton: React.FC = () => {
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
-
-  // const handleCloseModal = () => {
-  //   setIsModalOpen(false);
-  // };
 
   const [stage, setStage] = useState(0);
 
@@ -31,7 +25,6 @@ const AddCardButton: React.FC = () => {
       >
         {isCardAdded ? "Оплатить" : "Прикрепить банковскую карту"}
       </button>
-      {/* {isModalOpen && <Modal img={Check} title="Оплачено" content='При выходе вам потребуется заново вводить номер телефона и получить СМС' onClose={handleCloseModal} />} */}
       {isModalOpen && <ShowCaseModal stage={stage} nextStage={nextStage} />}
     </div>
   );
