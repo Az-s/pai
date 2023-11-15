@@ -28,15 +28,17 @@ const PrevOrders = () => {
           className="w-[64px] h-[64px] rounded-full border border-[#8A898E]"
         />
       </div>
+      <div className="bg-[#fff] w-full ">
+            <p className="font-[700] text-[24px] self-start py-[20px] mt-[8px] px-5">
+              Заказы
+            </p>
+
       {orders?.data ? (
         orders?.data.map((orderData, index) => (
           <section
             className="bg-[#fff] w-full flex flex-col items-center rounded-2xl mt-[8px] px-5"
             key={index}
           >
-            <p className="font-[700] text-[24px] self-start py-[20px]">
-              Заказы
-            </p>
             <Link
               to="/orders"
               className="flex flex-col items-center justify-between w-full"
@@ -78,16 +80,21 @@ const PrevOrders = () => {
                     {parseInt(orderData.sum) / 100} сом
                   </p>
                 </div>
-              <div className="flex justify-between items-center w-full pt-[12px] pb-[20px]">
+              <div className="flex justify-between items-center w-full pt-[12px] pb-[20px] border-b-[1px] border-[#e9e9e9]">
                 <p className="font-[400] text-[14px] text-[#8A898E]">
                   {orderData.date_close_date}
                 </p>
-                <p
+                {/* <p
                   className={`font-[600] text-[16px] ${
                     orderData.status === "1" ? `text-orange` : "text-[#6DC339]"
                   }`}
                 >
                   {orderData.status === "1" ? "Открыт" : "Оплачен"}
+                </p> */}
+                <p
+                  className={`font-[600] text-[16px] text-[#6DC339] `}
+                >
+                  Оплачен
                 </p>
               </div>
             </Link>
@@ -102,6 +109,7 @@ const PrevOrders = () => {
           />
         </div>
       )}
+      </div>
     </>
   );
 };

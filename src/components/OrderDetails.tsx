@@ -12,6 +12,8 @@ const OrderDetails = () => {
     fetchReceipt("1");
   }, [fetchReceipt]);
 
+  console.log(data)
+
   const defaultOptions = {
     loop: true,
     autoplay: true,

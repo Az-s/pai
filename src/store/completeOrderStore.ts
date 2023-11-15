@@ -1,3 +1,4 @@
+// XMLHttpRequest!
 // import { create } from 'zustand';
 // import axios from 'axios';
 
@@ -26,6 +27,8 @@
 
 // export default useCloseOrderStore;
 
+//JSON!
+
 import { create } from 'zustand';
 import axios from 'axios';
 
@@ -39,11 +42,11 @@ const useCloseOrderStore = create<CloseOrderStore>((set) => ({
   closeOrder: async (spotId, transactionId, payedCard, paymentMethodId) => {
     try {
       const dataToSend = {
-        spot_id: spotId,
-        spot_tablet_id: 1,
+        spot_id: "1",
+        spot_tablet_id: "1",
         transaction_id: transactionId,
-        payed_card: payedCard,
-        payment_method_id: paymentMethodId
+        payed_card: "430",
+        payment_method_id: "11"
       };
       console.log(dataToSend)
       const response = await axios.post<CloseOrderResponse>('https://pai.kg/api/closeOrder', JSON.stringify(dataToSend), {
