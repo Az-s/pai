@@ -21,7 +21,7 @@ export async function closeOrder(
   spotId: string,
   transactionId: string,
   payedCard: string,
-  paymentMethodId: string
+  paymentMethodId: string,
 ) {
   try {
     const requestData = {

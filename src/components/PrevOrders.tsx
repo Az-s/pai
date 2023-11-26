@@ -84,18 +84,18 @@ const PrevOrders = () => {
                 <p className="font-[400] text-[14px] text-[#8A898E]">
                   {orderData.date_close_date}
                 </p>
-                {/* <p
+                <p
                   className={`font-[600] text-[16px] ${
                     orderData.status === "1" ? `text-orange` : "text-[#6DC339]"
                   }`}
                 >
                   {orderData.status === "1" ? "Открыт" : "Оплачен"}
-                </p> */}
-                <p
+                </p>
+                {/* <p
                   className={`font-[600] text-[16px] text-[#6DC339] `}
                 >
                   Оплачен
-                </p>
+                </p> */}
               </div>
             </Link>
           </section>

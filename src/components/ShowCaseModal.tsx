@@ -40,11 +40,12 @@ const ShowCaseModal: React.FC<ModalProps> = ({ stage, nextStage }) => {
   const handlePostRequest = async () => {
     try {
       if (receiptStore.isLoading) {
+        console.log(receiptStore)
       } else {
         const receiptData = receiptStore.data;
         // console.log(receiptData);
-        const { spot_id, transaction_id, payed_card, payment_method_id } = receiptData; // Важно использовать нижний регистр
-        await closeOrderStore.closeOrder(spot_id, transaction_id, payed_card, payment_method_id);
+        const { spot_id, transaction_id, payed_card, payment_method_id , sum} = receiptData; // Важно использовать нижний регистр
+        await closeOrderStore.closeOrder(spot_id, transaction_id, payed_card, payment_method_id, sum);
         navigate("/restaurants");
       }
     } catch (error) {
